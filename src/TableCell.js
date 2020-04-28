@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.action.selected,
+    backgroundColor: theme.palette.action.hover,
     color: theme.palette.text.secondary,
     fontWeight: 'bold'
   },
