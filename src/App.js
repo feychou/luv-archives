@@ -34,8 +34,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function App() {
-  const [startDate, setStartDate] = useState(new Date('1830-11-01T21:11:54'));
-  const [endDate, setEndDate] = useState(new Date('1860-01-08T21:11:54'))
+  const [startDate, setStartDate] = useState(new Date('1830-11-01'));
+  const [endDate, setEndDate] = useState(new Date('1860-01-08'))
   const classes = useStyles()
 
   const onChangeStartDate = (date) => {
@@ -47,7 +47,10 @@ function App() {
   };
 
   const filterByDate = (date) => {
-    return moment(date).isBetween(startDate, endDate);
+    const momentDate = moment(date);
+    return (momentDate.isSame(startDate) ||
+            momentDate.isSame(endDate) ||
+            momentDate.isBetween(startDate, endDate));
   }
 
   return (
@@ -74,7 +77,7 @@ function App() {
           <KeyboardDatePicker
             disableToolbar
             variant="inline"
-            format="yyyy-mm-dd"
+            format="yyyy-MM-dd"
             margin="normal"
             id="date-picker-inline"
             label="To"
