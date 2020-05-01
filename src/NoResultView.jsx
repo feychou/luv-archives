@@ -10,11 +10,6 @@ const useStyles = makeStyles(theme => ({
   },
   Logo: {
     marginTop: theme.spacing(20)
-  },
-  result: {
-    marginBottom: theme.spacing(2),
-    fontWeight: theme.typography.fontWeightBold,
-    color: theme.palette.text.secondary
   }
 }));
 

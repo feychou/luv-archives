@@ -6,7 +6,8 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper
+  Paper,
+  Typography
 } from '@material-ui/core';
 
 import TableCell from './TableCell';
@@ -37,12 +38,12 @@ function DataTable(props) {
           {data.map((row) => (
             <ExpandableTableRow
               key={row.id}
-              expandComponent={<TableCell colSpan="5">{row.content}</TableCell>}
+              expandComponent={<TableCell colSpan="5"><Typography>{row.content}</Typography></TableCell>}
             >
-              <TableCell>{row.from}</TableCell>
-              <TableCell>{row.to}</TableCell>
-              <TableCell>{row.subject}</TableCell>
-              <TableCell>{row.date}</TableCell>
+              <TableCell><Typography>{row.from}</Typography></TableCell>
+              <TableCell><Typography>{row.to}</Typography></TableCell>
+              <TableCell><Typography>{row.subject}</Typography></TableCell>
+              <TableCell><Typography>{row.date}</Typography></TableCell>
             </ExpandableTableRow>
           ))}
         </TableBody>
