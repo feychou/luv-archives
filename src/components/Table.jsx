@@ -16,6 +16,9 @@ import ExpandableTableRow from './ExpandableTableRow';
 const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 650,
+  },
+  date: {
+    fontWeight: theme.typography.fontWeightBold
   }
 }));
 
@@ -43,7 +46,7 @@ function DataTable(props) {
               <TableCell><Typography>{row.from}</Typography></TableCell>
               <TableCell><Typography>{row.to}</Typography></TableCell>
               <TableCell><Typography>{row.subject}</Typography></TableCell>
-              <TableCell><Typography>{row.date}</Typography></TableCell>
+              <TableCell><Typography className={classes.date}>{row.date}</Typography></TableCell>
             </ExpandableTableRow>
           ))}
         </TableBody>

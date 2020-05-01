@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import {
-  ExpansionPanel,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
-  Typography,
-  Grid
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
 import moment from 'moment';
 
-import NoResultView from './NoResultView';
-import Table from './Table';
-import data from './data';
-import IconMail from './icon_mail_sp.svg';
+import { NoResultView, Table, MobileTable } from '../../components';
+import data from '../../data';
 
 const useStyles = makeStyles(theme => ({
   App: {
@@ -30,23 +22,6 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2),
     fontWeight: theme.typography.fontWeightBold,
     color: theme.palette.text.secondary
-  },
-  SmallFrom: {
-    fontWeight: theme.typography.fontWeightBold
-  },
-  iconContainer: {
-    textAlign: 'center'
-  },
-  iconMail: {
-    width: '15px',
-    paddingTop: theme.spacing(1)
-  },
-  SummaryContainer: {
-    padding: theme.spacing(1)
-  },
-  MobileTable: {
-    marginRight: - theme.spacing(10),
-    marginLeft: - theme.spacing(10)
   }
 }));
 
@@ -88,35 +63,7 @@ function App() {
     if (data.length) return (
       width > 960 ?
       <Table data={data} /> :
-      <div className={classes.MobileTable}>
-        {data.map(item => (
-          <ExpansionPanel>
-            <ExpansionPanelSummary className={classes.SummaryContainer}>
-              <Grid container direction="column">
-                <Grid container>
-                  <Grid item xs={1} className={classes.iconContainer}>
-                    <img className={classes.iconMail} src={IconMail} alt="icon mail from/to" />
-                  </Grid>
-                  <Grid container xs={9} direction="column">
-                    <Grid item>
-                      <Typography className={classes.SmallFrom}>{item.from}</Typography>
-                    </Grid>
-                    <Grid item>
-                      <Typography>{item.to}</Typography>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={2}>
-                    <Typography>{item.date}</Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Typography>{item.content}</Typography>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-        ))}
-      </div>
+      <MobileTable data={data} />
     )
 
     return <NoResultView />
@@ -132,7 +79,6 @@ function App() {
             variant="inline"
             format="yyyy-MM-dd"
             margin="normal"
-            id="date-picker-inline"
             label="From"
             value={startDate}
             onChange={onChangeStartDate}
@@ -148,7 +94,6 @@ function App() {
             variant="inline"
             format="yyyy-MM-dd"
             margin="normal"
-            id="date-picker-inline"
             label="To"
             value={endDate}
             onChange={onChangeEndDate}
