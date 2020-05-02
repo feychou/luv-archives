@@ -15,5 +15,5 @@ Users may want to completely focus on content and possible actions on one single
 I did not implement a pagination to keep the scope of the test limited. However, I think this is an important element to every interface of this kind. In the mobile view, the pagination could be replaced by infinite scrolling.
 
 ## Datepickers
-The mockup suggested only one date picker should be used for the date range, but I created two because the user may not benefit from a bi-monthly or yearly view of the date picker. Search of archives may be performed on a timespan covering several years and I thought keeping to isolated calendars for the start and end date would be a more straighforward approach to this problem.
+The mockup suggested only one date picker should be used for the date range, but I created two because the user may not benefit from a bi-monthly or yearly view of the date picker. Search of archives may be performed on a timespan covering several years and I thought keeping two isolated calendars for the start and end date would be a more straighforward approach to this problem.
 This interface could be further improved by limiting the possibility of human errors. For instance, putting some rules in place (start date needs to preceed end date and viceversa) and disabling the invalid selections or showing feedback about selection errors would be beneficial.
