@@ -1,4 +1,4 @@
-# Luv Archives :love_letter:
+# :love_letter: Luv Archives
 
 Archive for 19th century luv correspondence  
 
